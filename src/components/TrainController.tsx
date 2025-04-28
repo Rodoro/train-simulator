@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import { useState, useEffect } from 'react';
-import { sendPosition } from '@/lib/api';
 import axios from 'axios';
 
 export default function TrainController() {
@@ -36,7 +35,7 @@ export default function TrainController() {
 
     const sendPosition = async (lat: number, lon: number) => {
         try {
-            await axios.post('http://localhost:4000/trains', {
+            await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/trains`, {
                 id: trainId,
                 lat,
                 lon

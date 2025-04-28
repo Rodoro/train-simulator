@@ -7,7 +7,7 @@ export const useSocket = () => {
     const [trains, setTrains] = useState<any[]>([]);
 
     useEffect(() => {
-        const newSocket = io('http://localhost:4000', {
+        const newSocket = io(process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:4000', {
             path: '/socket.io',
             transports: ['websocket']
         });

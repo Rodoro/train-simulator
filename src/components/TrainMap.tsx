@@ -24,6 +24,13 @@ export default function TrainMap({ trains }: { trains: Train[] }) {
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                opacity={0.7}  // Делаем подложку полупрозрачной
+            />
+            <TileLayer
+                url="https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openrailwaymap.org/">OpenRailwayMap</a>'
+                opacity={1}    // Полная непрозрачность ЖД
+                zIndex={10}
             />
 
             {trains.map((train) => (
